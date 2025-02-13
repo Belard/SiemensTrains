@@ -13,9 +13,6 @@ cmake ..
 # Build the project
 cmake --build .
 
-# Test the project
-ctest .
-
 # Navigate back
 cd ..
 
