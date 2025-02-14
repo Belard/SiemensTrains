@@ -21,12 +21,27 @@ int main() {
     std::cout << "Full Schedule:\n";
     schedule.displaySchedule();
 
-    // Query trains (e.g., from StationA to StationC departing at 08:00)
-    std::vector<Train> results = schedule.queryTrains("StationA", "StationC", "08:00");
+    // Query trains (e.g., from StationA)
+    std::vector<Train> results = schedule.queryTrains("StationA", "", "");
     std::cout << "Query Results: " << results.size() << " train(s) found.\n";
     for (const auto& t : results) {
         std::cout << "  Train " << t.getTrainNumber() << ": " << t.getTrainName() << "\n";
     }
+
+    // Query trains (e.g., from StationA to StationC departing)
+    std::vector<Train> results2 = schedule.queryTrains("StationA", "StationC", "");
+    std::cout << "Query Results 2: " << results2.size() << " train(s) found.\n";
+    for (const auto& t : results2) {
+        std::cout << "  Train " << t.getTrainNumber() << ": " << t.getTrainName() << "\n";
+    }
+
+    // Query trains (e.g., from StationA to StationC departing at 08:00)
+    std::vector<Train> results3 = schedule.queryTrains("StationA", "StationC", "08:00");
+    std::cout << "Query Results 3: " << results3.size() << " train(s) found.\n";
+    for (const auto& t : results3) {
+        std::cout << "  Train " << t.getTrainNumber() << ": " << t.getTrainName() << "\n";
+    }
+
 
     // Remove a train from the schedule
     bool removed = schedule.removeTrain(101);
